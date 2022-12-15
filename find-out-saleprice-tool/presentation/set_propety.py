@@ -2,7 +2,7 @@ import configparser # 設定ファイルを扱うモジュールをインポー�
 import os
 
 # コンフィグのファイルパス
-CONFIG_FILEPATH = "./Yahoo_DATA/Y_config.ini"
+CONFIG_FILEPATH = "./config/config.ini"
 
 # ConfigParserのインスタンスを取得
 CONFIG = configparser.ConfigParser()

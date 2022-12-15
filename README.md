@@ -115,7 +115,7 @@ pip install -r requirements.txt
 
 <br>
 
-## 【Controller　フォルダ】
+## 【application　フォルダ】
 <br>
 
 ### **『main_screen.py』**
@@ -131,7 +131,7 @@ pip install -r requirements.txt
 <br>
 <br>
 
-## 【View　フォルダ】
+## 【presentation　フォルダ】
 
 <br>
 
@@ -144,7 +144,7 @@ pip install -r requirements.txt
 <br>
 <br>
 
-## 【Model　フォルダ】
+## 【domain　フォルダ】
 
 ### 『data_save.py』
 

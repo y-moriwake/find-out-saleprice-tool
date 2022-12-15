@@ -7,13 +7,14 @@ from matplotlib import pyplot as PLT # グラフなど作成
 import numpy # 計算など
 
 # 自作モジュール
-from Controller import set_propety
-from Model import data_save
-from Model import web_Scraping as WS
+from presentation import set_propety
+from infrastructure import csv_repository
+from infrastructure import scraping_repository
+from domain import web_Scraping as WS
 
 # iniファイルをロードする
 ini_road = set_propety.SettingProcessingClass()
-# from View import ToolTip
+# from presentation import ToolTip
 
 
 # メイン画面　メソッドのクラス
@@ -82,7 +83,7 @@ class MainScreenProcessingClass():
         self.TreeView = Yahoo_tree # tree.bindのeventではウィジェットを渡せないため
 
         # WEBスクレイピング開始
-        scraping_list, self.jumpURL =  WS.yahoo_scraping_f(gettext, state, godpagenum)
+        scraping_list, self.jumpURL =  scraping_repository.yahoo_scraping_f(gettext, state, godpagenum)
 
         # 一つ上のローカル変数に値を渡す
         self.Yahoo_scraping_list = scraping_list.values.tolist()
@@ -137,7 +138,7 @@ class MainScreenProcessingClass():
                                 message="スクレイピングで取得したデータを保存しますか？"
                                 )
         if ret:
-            data_save.data_save_CSV_f(self.Yahoo_scraping_list, self.serch_goods_name)
+            csv_repository.write_csv(self.Yahoo_scraping_list, self.serch_goods_name)
 
     # 『ソートボタン』を押したときの処理
     def Yahoo_sort_f(self,btnid, Yahoo_tree):

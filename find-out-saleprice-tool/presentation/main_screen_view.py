@@ -14,9 +14,9 @@ from tkinter import Toplevel
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # 自作モジュール
-from Controller.main_screen import MainScreenProcessingClass
-from Controller.set_propety import SettingProcessingClass
-from Model import data_save
+from application.main_screen import MainScreenProcessingClass
+from presentation.set_propety import SettingProcessingClass
+from utils import folder_util
 
 # メイン画面　デザイン・配置
 class MainScreenViewClass(tkinter.Frame):
@@ -379,7 +379,7 @@ class LoadingViewClass():
                 self.load_img_num += 1
 
             # ローディングアニメーションの画像を読み込み
-            load_jpeg = "./img/zjpeg_ghost/Ghost-{}.jpg".format(str(self.load_img_num))
+            load_jpeg = "./static/image/zjpeg_ghost/Ghost-{}.jpg".format(str(self.load_img_num))
 
             self.loading_img = Image.open(load_jpeg)
             im_resize = self.loading_img.resize(size=(140,140)) # サイズ変更
@@ -443,18 +443,12 @@ class LoadingViewClass():
         # ループ開始
         app.after(0, self.draw_anime) # afterメソッド　送らせて繰り返し処理　
 
-
-
 # フォルダ作成処理
-data_save.create_folder_f()
+folder_util.create_folder()
 #(Viewからはcontrollerの呼び出し)
-
-
 
 # メイン画面を表示する
 root = tkinter.Tk()
 app = MainScreenViewClass(master=root)
 app.mainloop()
-
-
 

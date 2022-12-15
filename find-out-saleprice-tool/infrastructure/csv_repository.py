@@ -1,22 +1,10 @@
 import csv
 import datetime
-import os
 
-# コンフィグのファイルパス
-ini_folder_path = "./Yahoo_DATA/"
-
-# フォルダを作成する処理
-def create_folder_f():
-    """
-    フォルダを作成する処理
-    """
-    is_yahoofolder = os.path.exists(ini_folder_path)
-    if not is_yahoofolder:
-        os.mkdir(ini_folder_path)
-
+ini_folder_path = "./output/"
 
 # webスクレイピングの結果をCSVとして保存する処理
-def data_save_CSV_f(godos_list, goodsName):
+def write_csv(godos_list, goodsName):
     """
     webスクレイピングの結果をCSVとして保存する処理
     """
